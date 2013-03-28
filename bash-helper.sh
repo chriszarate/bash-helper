@@ -197,7 +197,7 @@
 
   # Required variables.
   if [ -n "$require_vars$require_dirs$require_files" ]; then
-    for var in $require_vars$require_dirs $require_files; do
+    for var in $require_vars $require_dirs $require_files; do
       if [ ! -n "${!var}" ]; then
         usage
       fi
