@@ -29,6 +29,9 @@
 #   - enable_log
 #       Set to anything to enable logging and suppress output to console.
 #  * Prerequisites
+#   - require_vars
+#       *Names of variables* that must be declared. Useful for enforcing
+#       required flags.
 #   - require_dirs
 #       *Names of variables* that must be declared *and* contain required
 #       directories. Useful for enforcing required flags.
@@ -193,8 +196,8 @@
   fi
 
   # Required variables.
-  if [ -n "$require_dirs$require_files" ]; then
-    for var in $require_dirs $require_files; do
+  if [ -n "$require_vars$require_dirs$require_files" ]; then
+    for var in $require_vars$require_dirs $require_files; do
       if [ ! -n "${!var}" ]; then
         usage
       fi
