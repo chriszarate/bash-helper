@@ -83,7 +83,7 @@
       echo "---"
     fi
     if [ -n "$usage_text" ]; then
-      echo -n "$(basename $0) $usage_text"
+      echo -n "$(basename "$0") $usage_text"
     else
       echo "No usage notes; please read the script."
     fi
@@ -175,7 +175,7 @@
   if [ -n "$enable_log" ]; then
 
     # Set log file.
-    log_file="$(basename $0)_${current_date}_${current_time}.log"
+    log_file="$(basename "$0" .sh)_${current_date}_${current_time}.log"
 
     # Redirect standard output and standard error to log file.
     exec 2>&1> "$log_dir/$log_file"
